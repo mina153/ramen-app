@@ -1,24 +1,81 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+#テーブル設計
 
-Things you may want to cover:
+##users（ユーザー情報）テーブル
 
-* Ruby version
+| Column              | Type    | Options                      |
+|---------------------|---------|------------------------------|
+| nickname            | string  | null:false                   |
+| email               | string  | null:false, uniqueness: true |
+| encrypted_password  | string  | null:false                   |
+| name                | string  | null:false                   |
 
-* System dependencies
+### Association
 
-* Configuration
+- has_many :items
+- has_many :event_users
+- has_many :comments
+- has_many :events, through: :event_users
 
-* Database creation
 
-* Database initialization
+##items (ラーメン情報)テーブル
 
-* How to run the test suite
+| Column                 | Type       | Options                      |
+|------------------------|------------|----------------------------- |
+| title                  | string     | null:false                   |
+| explanation            | text       | null:false                   |
+| prefecture_id          | integer    | null:false                   |
+| city                   | string    | null:false                   |
+| user                   | references | null:false,foreign_key: true |
 
-* Services (job queues, cache servers, search engines, etc.)
+### Association
 
-* Deployment instructions
+- has_one :comments
+- belongs_to :user
 
-* ...
+
+##comments (コメント)テーブル
+
+| Column                 | Type       | Options                      |
+|------------------------|------------|----------------------------- |
+| text                   | text       | null:false                   |
+| item                   | references | null:false,foreign_key: true |
+| user                   | references | null:false,foreign_key: true |  
+
+### Association
+
+- belongs_to :user
+- belongs_to :item
+
+
+##events (イベント情報)
+
+| Column                 | Type       | Options                      |
+|------------------------|------------|----------------------------- |
+| theme                  | string     | null:false                   |
+| detail                 | text       | null:false                   |
+| date                   | date       | null:false                   |  
+| start_at               | datetime   | null:false                   |
+| finish_at              | datetime   | null:false                   |
+| user                   | references | null:false,foreign_key: true |
+
+### Association
+
+- has_many :event_users
+- has_many :users, through: :event_users
+
+
+
+##event_users (中間)テーブル
+
+| Column              | Type       | Options                      |
+|---------------------|------------|----------------------------- |
+| user                | references | null:false,foreign_key: true |
+| event               | references | null:false,foreign_key: true |
+
+### Association
+
+- belongs_to :user
+- belongs_to :event
+
