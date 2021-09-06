@@ -1,0 +1,39 @@
+h5{
+  font-size: 30px;
+}
+
+h6{
+  font-size: 20px;
+  font-weight: 10px;
+  margin: 40px 0 10px 0;
+}
+
+.items-text{
+  width: 30vw;
+  height: 100px;
+}
+
+.items-title{
+  width: 30vw;
+  height: 10%;
+}
+
+.items-city{
+  width: 30vw;
+  height: 15%;
+}
+
+.new-item-btn{
+  margin: 50px 0 30px 0;
+  padding: 10px;
+}
+
+.post{
+  border: 1px solid #ccc;
+  width: 60%;
+}
+
+.ramens-address{
+  border: 1px solid #ccc;
+  width: 50%;
+}
