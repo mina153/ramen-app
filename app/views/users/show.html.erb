@@ -1,0 +1,29 @@
+<h4>MyProfile</h4>
+<h2>  <%= link_to current_user.name , '#'%> 's profile</h2>
+
+    <table class="detail-table">
+      <tbody>
+        <tr>
+          <th class="detail-intern"> name</th>
+          <td class="detail-value"><%= current_user.name %></td>
+        </tr>
+        <tr>
+          <th class="detail-intern"> nickname</th>
+          <td class="detail-value"><%= current_user.nickname %></td>
+        </tr>
+        <tr>
+          <th class="detail-intern">email</th>
+          <td class="detail-value"><%= current_user.email%></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="more_list">
+        <% if user_signed_in? %>           
+            
+              <%= link_to 'edit 📝', edit_user_path(current_user), method: :get %>
+               
+        <% end %> 
+    </div>   
+
+ <%=link_to '⇨ back to MyPage', items_path(current_user), class:"back-page-btn" %>
