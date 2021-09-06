@@ -43,11 +43,10 @@ class ItemsController < ApplicationController
     end
   end
 
-  
   private
 
   def item_params
-    params.require(:item).permit(:title, :explanation, :prefecture_id, :city, :user).merge(user_id: current_user.id)
+    params.require(:item).permit(:title, :explanation, :prefecture_id, :city, :user, :image).merge(user_id: current_user.id)
   end
 
   def movement 

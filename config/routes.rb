@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   root  'ramens#index'
   resources :users, only: [:show, :edit, :update]
   resources :ramens, only: :index
-  resources :items
+
+  resources :items 
+  
+
   
 end

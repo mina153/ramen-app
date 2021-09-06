@@ -1,0 +1,30 @@
+
+ .detail-table {
+  margin-bottom: 30px;
+  width: 90%;
+  
+}
+
+.detail-item {
+  width: 20%;
+  background-color: #eee;
+  border: 1px solid #dedede;
+  font-size: 14px;
+  text-align: center;
+}
+
+.detail-value {
+  width: 80%;
+  padding: 20px;
+  border: 1px solid #dedede;
+  font-size: 14px;
+}
+
+
+table{
+  margin: 0 auto
+}
+
+.item{
+  margin: 30px;
+}

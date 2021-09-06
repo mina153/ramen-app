@@ -19,11 +19,13 @@
     </table>
 
     <div class="more_list">
-        <% if user_signed_in? %>           
+        <% if user_signed_in? %>    
+          <% if  @user== current_user %>        
             
               <%= link_to 'edit 📝', edit_user_path(current_user), method: :get %>
-               
-        <% end %> 
+
+          <% end %>   
+        <% end %>  
     </div>   
 
  <%=link_to '⇨ back to MyPage', items_path(current_user), class:"back-page-btn" %>

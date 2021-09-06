@@ -1,0 +1,40 @@
+<div class="item-show">
+  <div class="item-box">
+    <div class= "information-header">
+      <h1>Ramen</h1>
+    </div>
+    <div class="item">
+        <div class = item-title><h2><%= @item.title %></h2> by <%= link_to current_user.nickname,  user_path(current_user) %></div>
+        <div class='item-img-content'>
+          <%= image_tag @item.image, class: "item-img" if @item.image.attached?%>
+        </div>
+    </div>
+  
+
+    <table class="detail-table">
+      <tbody>
+        <tr>
+          <th class="detail-item">Explantion about ramen</th>
+          <td class="detail-value"><%= @item.explanation %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">Address of the ramen shop</th>
+          <td class="detail-value"><%= @item.prefecture.name%>, <%= @item.city %> </td>
+        </tr>
+      </tbody>
+    </table>
+   
+        
+    <div class= edit-destroy>
+      <% if user_signed_in? %>  
+        <% if current_user== @item.user %>
+          <p><%= link_to "EDIT 📝", edit_item_path(@item.id), method: :get, class: "item-edit" %></p>
+          <p><%= link_to "DELETE ❌", item_path(@item.id), method: :delete, class:"item-destroy" %></p>
+          <br>
+          <%=link_to '⇨ back to MyPage', items_path(current_user), class:"back-page-btn" %>
+          <br>
+        <% end %> 
+      <% end %>       
+    </div>
+  </div>
+</div>
