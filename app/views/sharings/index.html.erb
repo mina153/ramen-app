@@ -1,0 +1,76 @@
+<div class="SharePage">
+  <div class="Account__info">
+   
+      <h1 class="border-bottom-1"> SharePage </h1>
+    
+  </div>
+ 
+  <div class='item2-contents'>
+    <%# <div class="item__info"> %>
+      <%# <h6>  Welcome back , <b><%= link_to current_user.name, user_path(current_user)</b> ! </h6> %>
+
+    <%# </div> %>
+   
+      <div class = "list-list-list">
+        <% @items.each do |item| %>
+          <ul class= "list-list"> 
+            <li class='show-list'>  
+
+              <div class='item-info'>
+                <h3 class='item-name'>
+                  <%= link_to item.title, item_path(item.id), method: :get %>  by <%= link_to item.user.name, user_path(item.user) %>  
+                </h3>
+                  <div class='item-img-content'>
+                    <%= image_tag item.image, class: "item-img" if item.image.attached?%>
+                  </div>
+
+                <%# <div class='user-date'>
+                  <span>Contributor : <%= link to item.user.name %></span>  
+                <%# </div>   %>
+                
+                <ul class="more_list">
+                  <% if user_signed_in? %>          
+                    <% if current_user == item.user %>  
+                      <li>  
+                        <%= link_to 'EDIT 📝', edit_item_path(item.id), method: :get %>
+                      </li>    
+                      <li>
+                        <%= link_to 'DELETE ❌', item_path(item.id), method: :delete %>
+                      </li>   
+                    <% end %> 
+                  <% end %> 
+                </ul>  
+
+              </div>   
+            </li>
+          </ul> 
+        <% end %>   
+      </div>   
+
+        
+      <div class="entry-form">
+        <%= link_to ' + Share ramen 🍜', new_item_path(current_user) %>
+      </div>
+
+  </div>
+  <%# /商品一覧 %>
+
+
+  <div class="Account_link">
+    <% if user_signed_in? %>
+      <br>
+      <%= link_to '⇨ back to MyPage', items_path(current_user), class: "share"%>
+      <br>
+      <br>
+      <%= link_to '⇨ Logout', destroy_user_session_path, method: :delete, class: "logout" %>
+      <br>
+    <% else %>
+      <ul>
+      <li><%= link_to '⇩ Login', new_user_session_path, class: "login" %></li>
+      <li><%= link_to '⇩ New Registration', new_user_registration_path, class: "sign-up" %></li>
+      </ul>
+    <% end %>
+  </div>
+
+ 
+</div>

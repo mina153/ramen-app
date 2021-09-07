@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'sharings/index'
   get 'users/show'
   get 'items/index'
   get 'ramens/index'
@@ -7,8 +8,12 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :edit, :update]
   resources :ramens, only: :index
 
-  resources :items 
-  
+  resources :items  do
+    resources :comments
+  end
 
+  resources :items 
+  resources :sharings
+  
   
 end

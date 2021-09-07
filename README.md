@@ -31,7 +31,7 @@
 
 ### Association
 
-- has_one :comments
+- has_many :comments
 - belongs_to :user
 
 

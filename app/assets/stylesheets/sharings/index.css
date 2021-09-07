@@ -1,0 +1,18 @@
+.SharePage{
+  background-color: khaki;
+  padding: 5px 10px  0  10px;
+}
+
+.item-info{
+  background-color: white;
+}
+
+.share{
+  background-color: white;
+}
+
+.logout{
+  background-color: white;
+  border: 1px solid black;
+  padding: 3px;
+}

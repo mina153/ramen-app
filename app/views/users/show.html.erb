@@ -1,20 +1,22 @@
-<h4>MyProfile</h4>
-<h2>  <%= link_to current_user.name , '#'%> 's profile</h2>
+<h1 class="border-bottom-1">MyProfile</h1>
+<h2>  <%= link_to @user.nickname , '#'%> 's profile</h2>
 
     <table class="detail-table">
       <tbody>
         <tr>
           <th class="detail-intern"> name</th>
-          <td class="detail-value"><%= current_user.name %></td>
+          <td class="detail-value"><%= @user.name %></td>
         </tr>
         <tr>
           <th class="detail-intern"> nickname</th>
-          <td class="detail-value"><%= current_user.nickname %></td>
+          <td class="detail-value"><%= @user.nickname %></td>
         </tr>
-        <tr>
-          <th class="detail-intern">email</th>
-          <td class="detail-value"><%= current_user.email%></td>
-        </tr>
+        <% if  @user == current_user %>  
+          <tr>
+            <th class="detail-intern">email</th>
+            <td class="detail-value"><%= @user.email%></td>
+          </tr>
+        <% end %>
       </tbody>
     </table>
 
@@ -22,10 +24,10 @@
         <% if user_signed_in? %>    
           <% if  @user== current_user %>        
             
-              <%= link_to 'edit 📝', edit_user_path(current_user), method: :get %>
+              <%= link_to 'EDIT 📝', edit_user_path(@user), method: :get %>
 
           <% end %>   
         <% end %>  
     </div>   
 
- <%=link_to '⇨ back to MyPage', items_path(current_user), class:"back-page-btn" %>
+ <%=link_to '⇨ back to MyPage', items_path(@user), class:"back-page-btn" %>

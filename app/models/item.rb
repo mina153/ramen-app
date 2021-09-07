@@ -5,6 +5,7 @@ class Item < ApplicationRecord
   validates :city, presence: true
  
   belongs_to :user
+  has_many :comments
   has_one_attached :image
 
   extend ActiveHash::Associations::ActiveRecordExtensions
