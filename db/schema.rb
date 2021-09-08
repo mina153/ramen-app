@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_07_103928) do
+ActiveRecord::Schema.define(version: 2021_09_08_163951) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -43,6 +43,18 @@ ActiveRecord::Schema.define(version: 2021_09_07_103928) do
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
+  create_table "events", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "theme", null: false
+    t.text "detail", null: false
+    t.date "date", null: false
+    t.datetime "start_at", null: false
+    t.datetime "finish_at", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_events_on_user_id"
+  end
+
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title", null: false
     t.text "explanation", null: false
@@ -52,6 +64,16 @@ ActiveRecord::Schema.define(version: 2021_09_07_103928) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_items_on_user_id"
+  end
+
+  create_table "questions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.text "hatena", null: false
+    t.bigint "event_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["event_id"], name: "index_questions_on_event_id"
+    t.index ["user_id"], name: "index_questions_on_user_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -71,5 +93,8 @@ ActiveRecord::Schema.define(version: 2021_09_07_103928) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "comments", "items"
   add_foreign_key "comments", "users"
+  add_foreign_key "events", "users"
   add_foreign_key "items", "users"
+  add_foreign_key "questions", "events"
+  add_foreign_key "questions", "users"
 end

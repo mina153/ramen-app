@@ -1,10 +1,19 @@
 <div class="item-show">
   <div class="item-box">
-    <div class= "information-header">
-      <h1 class="border-bottom-1">Ramen</h1>
+
+    <div class= "Account__info">
+    
+       <h1 class="border-bottom-1">ShareRamen</h1>
+
+      <div class="Account_link">
+        <%=link_to '⇨ back to MyPage', items_path(current_user), class:"back-page-btn" %>
+      </div>
     </div>
+
+
+
     <div class="item">
-        <div class = item-title><h2><%= @item.title %></h2> by <%= link_to current_user.nickname,  user_path(current_user) %></div>
+        <div class = item-title><h2><%= @item.title %></h2> by <%= link_to @item.user.nickname,  user_path(current_user) %></div>
         <div class='item-img-content'>
           <%= image_tag @item.image, class: "item-img" if @item.image.attached?%>
         </div>
@@ -29,11 +38,8 @@
       <% if user_signed_in? %>  
         <% if current_user== @item.user %>
           <div class = "edit1-destroy1">
-            <%= link_to "EDIT 📝", edit_item_path(@item.id), method: :get, class: "item-edit" %> or <%= link_to "DELETE ❌", item_path(@item.id), method: :delete, class:"item-destroy" %>
+            <%= link_to "EDIT 📝", edit_item_path(@item.id), method: :get, class: "item-edit" %>  or <%= link_to "DELETE ❌", item_path(@item.id), method: :delete, class:"item-destroy" %>
           </div>
-          <br>
-          <%=link_to '⇨ back to MyPage', items_path(current_user), class:"back-page-btn" %>
-          <br>
         <% end %> 
       <% end %>       
     </div>

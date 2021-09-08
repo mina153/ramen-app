@@ -14,6 +14,9 @@ Rails.application.routes.draw do
 
   resources :items 
   resources :sharings
-  
+
+  resources :events do
+    resources :questions, only: [:create]
+  end
   
 end

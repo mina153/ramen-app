@@ -3,6 +3,25 @@
    
       <h1 class="border-bottom-1">MyPage </h1>
     
+  
+    <div class="Account_link">
+        <% if user_signed_in? %>
+      
+            <%= link_to '🐰 SharePage 🐰', sharings_path, class: "share"%>
+            or
+            <%= link_to '🍻 EventPage 🍻', events_path, class: "share"%>
+          
+          
+            <%= link_to '⇨ Logout', destroy_user_session_path, method: :delete, class: "logout" %>
+          
+        <% else %>
+          <ul>
+          <li><%= link_to '⇩ Login', new_user_session_path, class: "login" %></li>
+          <li><%= link_to '⇩ New Registration', new_user_registration_path, class: "sign-up" %></li>
+          </ul>
+        <% end %>
+    </div>
+
   </div>
  
   <div class='item1-contents'>
@@ -50,27 +69,13 @@
   
 
       
-    <div class="entry-form">
+    <%# <div class="entry-form">
       <%= link_to ' + Share ramen 🍜', new_item_path(current_user) %>
-    </div>
+    <%# </div> %> 
 
   </div>
   <%# /商品一覧 %>
 
 
-    <div class="Account_link">
-      <% if user_signed_in? %>
-        <br>
-        <%= link_to '🐰 SharePage 🐰', sharings_path, class: "share"%>
-        <br>
-        <br >
-        <%= link_to '⇨ Logout', destroy_user_session_path, method: :delete, class: "logout" %>
-        <br>
-      <% else %>
-        <ul>
-        <li><%= link_to '⇩ Login', new_user_session_path, class: "login" %></li>
-        <li><%= link_to '⇩ New Registration', new_user_registration_path, class: "sign-up" %></li>
-        </ul>
-      <% end %>
-    </div>
+    
 </div>

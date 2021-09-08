@@ -7,6 +7,12 @@ class User < ApplicationRecord
   validates :name, presence: true
   validates :nickname, presence: true
   
-  has_many :items
-  has_many :comments
+  has_many :items, foreign_key: :user_id, dependent: :destroy
+  has_many :comments, foreign_key: :user_id, dependent: :destroy
+  
+  has_many :events, foreign_key: :user_id, dependent: :destroy
+  has_many :questions,  foreign_key: :user_id, dependent: :destroy
+
 end
+
+

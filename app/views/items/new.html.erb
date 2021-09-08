@@ -1,7 +1,20 @@
 <div class="items-contents">
 
   <div class="items-main">
-    <h1 class="border-bottom-1">Fill in & Share ramen 🍜</h1>
+
+    <div class= "Account__info">
+
+      <h1 class="border-bottom-1">Fill in & Share ramen 🍜</h1>
+
+      <div class="Account_link">
+        <%=link_to '⇨ back to MyPage', items_path(current_user), class:"back-page-btn" %>
+      </div>
+
+    </div>
+
+
+
+
     <%= form_with model: @item , local: true do |f| %>
     
       <%# <%= render 'layouts/error_messages', model: f.object %> 
@@ -59,10 +72,6 @@
       <%# 下部ボタン %>
       <div class="items-btn-contents">
           <%= f.submit "+++ Share your favorite ramen " ,class:"new-item-btn" %>
-          <br>
-
-        <%=link_to '⇨ MyPage', items_path(current_user), class:"back-page-btn" %>
-        <br>
       </div>
       <%# /下部ボタン %>
     
