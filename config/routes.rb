@@ -10,13 +10,15 @@ Rails.application.routes.draw do
 
   resources :items  do
     resources :comments, only: [:create]
+    # get :participations, on: :collection
   end
 
   resources :items 
-  resources :sharings
+  resources :sharings, only: [:index]
 
   resources :events do
     resources :questions, only: [:create]
+    # resources :participations, only: [:create, :destroy]
   end
   
 end

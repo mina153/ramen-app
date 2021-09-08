@@ -9,4 +9,6 @@ class Event < ApplicationRecord
 
   belongs_to :user, optional: true
   has_many :questions, foreign_key: "event_id", dependent: :destroy
+
+  # has_many :participations, foreign_key: "event_id", dependent: :destroy
 end

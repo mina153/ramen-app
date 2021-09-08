@@ -23,6 +23,11 @@ class ItemsController < ApplicationController
   def show
     @comment= Comment.new
     @comments = @item.comments.includes(:user)
+
+    # @user = current_user
+    # @events = @user.events
+    # participations = Participation.where(user_id: current_user.id).pluck(:event_id)  # ログイン中のユーザーのお気に入りのpost_idカラムを取得
+    # @participation_list = Participation.find(participations)     # postsテーブルから、お気に入り登録済みのレコードを取得
   end
 
   def edit 
