@@ -1,7 +1,7 @@
 <div class="items-contents">
 
   <div class="items-main">
-    <h1 class="border-bottom-1">Edit the post 🍜</h1>
+    <h1 class="border-bottom-1">EditPage </h1>
     <%= form_with model: @item , local: true do |f| %>
     
       <%# <%= render 'layouts/error_messages', model: f.object %> 
@@ -10,26 +10,26 @@
       <div class="new-items">
           <h6>< About the post  ></h6>
         <div class = "post">
-          <div class="weight-bold-text">
-            <strong>* Title</strong>
-            <span class="indispensable"> necessary </span>
+          <div class ="items">
+            <div class="weight-bold-text">
+              <strong>* Title</strong>
+              <span class="indispensable"> necessary </span>
+            </div>
+            <%= f.text_area :title, class:"items-title", id:"item-title", placeholder:"Plase fill in the title of this post (max: 20 letters)" %>
           </div>
-          <%= f.text_area :title, class:"items-title", id:"item-title", placeholder:"Plase fill in the title of this post (max: 20 letters)" %>
           <%# 画像 %>
-          <div class="img-upload">
+          <div class="items">
             <div class="weight-bold-text">
               <strong>* Image</strong>
               <span class="indispensable"> necessary </span>
             </div>
             <div class="click-upload">
-              <p>
-                Click to upload file
-              </p>
+             
               <%= f.file_field :image, id:"item-image" %>
             </div>
           </div>
           <%# /画像 %>
-          <div class="items-explain">
+          <div class="items">
             <div class="weight-bold-text">
               <strong>* Explanation</strong>
               <span class="indispensable"> necessary </span>
@@ -40,19 +40,19 @@
         
           <h6>< About the address of the ramen shop ></h6>
           <div class= "ramens-address">
-          <div class="items-prefecture">
-            <div class="weight-bold-text">
-              <strong>* Prefecture</strong>
-              <span class="indispensable"> necessary </span>
+            <div class="items">
+              <div class="weight-bold-text">
+                <strong>* Prefecture</strong>
+                <span class="indispensable"> necessary </span>
+              </div>
+              <%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {}, {class:"items-collection", id:"item-prefecture"}) %>
             </div>
-            <%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {}, {class:"items-collection", id:"item-prefecture"}) %>
-          </div>
-          <div class= "items-city">
-            <div class="weight-bold-text">
-              <strong>* City</strong>
-              <span class="indispensable"> necessary </span>
-            </div><%= f.text_area :city, class:"items-city", id:"item-city", placeholder:"Please fill in the city of the ramen shop" %>
-          </div>
+            <div class= "items">
+              <div class="weight-bold-text">
+                <strong>* City</strong>
+                <span class="indispensable"> necessary </span>
+              </div><%= f.text_area :city, class:"items-city", id:"item-city", placeholder:"Please fill in the city of the ramen shop" %>
+            </div>
         </div>
       </div>
 
@@ -60,7 +60,7 @@
       <div class="items-btn-contents">
         <%= f.submit "⇧ Update " ,class:"new-item-btn" %>
         <br>
-        <%=link_to '⇨ back to MyPage', items_path(current_user), class:"back-page-btn" %>
+        <%=link_to '⇨ MyPage', items_path(current_user), class:"back-page-btn" %>
         <br>
       </div>
       <%# /下部ボタン %>

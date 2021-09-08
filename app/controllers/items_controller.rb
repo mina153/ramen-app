@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:show, :index]
   before_action :movement, only: [ :show, :edit, :update, :destroy]
   before_action :prohibit, only: [:edit, :update, :destroy]
 
@@ -21,6 +21,8 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @comment= Comment.new
+    @comments = @item.comments.includes(:user)
   end
 
   def edit 

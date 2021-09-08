@@ -28,13 +28,41 @@
     <div class= edit-destroy>
       <% if user_signed_in? %>  
         <% if current_user== @item.user %>
-          <p><%= link_to "EDIT 📝", edit_item_path(@item.id), method: :get, class: "item-edit" %></p>
-          <p><%= link_to "DELETE ❌", item_path(@item.id), method: :delete, class:"item-destroy" %></p>
+          <div class = "edit1-destroy1">
+            <%= link_to "EDIT 📝", edit_item_path(@item.id), method: :get, class: "item-edit" %> or <%= link_to "DELETE ❌", item_path(@item.id), method: :delete, class:"item-destroy" %>
+          </div>
           <br>
           <%=link_to '⇨ back to MyPage', items_path(current_user), class:"back-page-btn" %>
           <br>
         <% end %> 
       <% end %>       
+    </div>
+  </div>
+
+  <div class="container">
+    <% if user_signed_in? %>
+      <h4 class="border-bottom-1"> Comment </h4>
+      <div class ="comments-comments">
+        <%= form_with(model: [@item, @comment], local: true) do |form| %>
+          <%= form.text_area :text, class: "comments-form", placeholder: "Plase fill in the comment (max: 100 letters)", rows: "3" %>
+          <br><%= form.submit "SEND"%><br>
+        <% end %>
+    <% else %>
+        <strong><p>※※※ New registration / login is required to post comments ※※※</p></strong>
+    <% end %>
+      </div>
+    <div class="comments">
+      <h5>＜コメント一覧＞</h5>
+      <% @comments.each do |comment| %>
+        <p>
+        <% if user_signed_in? %>
+          <strong><%= link_to comment.user.nickname, user_path(comment.user)  %>：</strong>
+        <% else %>
+          <strong><%=comment.user.nickname %>：</strong>
+        <% end %>
+          <%= comment.text %>
+        </p>
+      <% end %>
     </div>
   </div>
 </div>

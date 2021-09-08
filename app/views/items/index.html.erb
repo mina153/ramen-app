@@ -12,42 +12,40 @@
     </div>
     
    
-      <div class = "list">
-        <% @items.each do |item| %>
-         <% if current_user == item.user %>
-          <ul class= "list-list"> 
-            <li class='show-list'>  
+    <div class = "list">
+      <% @items.each do |item| %>
+        <% if current_user == item.user %>
+        <ul class= "list-list"> 
+          <li class='show-list'>  
 
-                      <div class='item-info'>
-                        <h3 class='company-name'>
-                          <%= link_to item.title,item_path(item.id), method: :get %>    
-                        </h3>
-                          <div class='item-img-content'>
-                            <%= image_tag item.image, class: "item-img" if item.image.attached?%>
+                    <div class='item-info'>
+                      <h3 class='item-name'>
+                        <%= link_to item.title,item_path(item.id), method: :get %>    
+                      </h3>
+                        <div class='item-img-content'>
+                          <%= image_tag item.image, class: "item-img" if item.image.attached?%>
+                        </div>
+
+                      <%# <div class='user-date'>
+                        <span>Contributor : <%= link to item.user.name %></span>  
+                      <%# </div>   %>
+                      
+                      <ul class="more_list">
+                        <% if user_signed_in? %>          
+                          <% if current_user == item.user %>  
+                          <div class = "edit1-destroy1">
+                            <%= link_to "EDIT 📝", edit_item_path(item.id), method: :get, class: "item-edit" %> or <%= link_to "DELETE ❌", item_path(item.id), method: :delete, class:"item-destroy" %>
                           </div>
-
-                        <%# <div class='user-date'>
-                          <span>Contributor : <%= link to item.user.name %></span>  
-                        <%# </div>   %>
-                        
-                        <ul class="more_list">
-                          <% if user_signed_in? %>          
-                            <% if current_user == item.user %>  
-                              <li>  
-                                <%= link_to 'EDIT 📝', edit_item_path(item.id), method: :get %>
-                              </li>    
-                              <li>
-                                <%= link_to 'DELETE ❌', item_path(item.id), method: :delete %>
-                              </li>   
-                            <% end %> 
                           <% end %> 
-                        </ul>  
+                        <% end %> 
+                      </ul>  
 
-                      </div>   
-            </li>
-          </ul>
-          <% end %>  
+                    </div>   
+          </li>
+        </ul>
         <% end %>  
+      <% end %> 
+    
     </div>
   
 
@@ -63,7 +61,7 @@
     <div class="Account_link">
       <% if user_signed_in? %>
         <br>
-        <%= link_to '🐰 Go to shared page 🐰', sharings_path, class: "share"%>
+        <%= link_to '🐰 SharePage 🐰', sharings_path, class: "share"%>
         <br>
         <br >
         <%= link_to '⇨ Logout', destroy_user_session_path, method: :delete, class: "logout" %>

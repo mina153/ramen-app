@@ -1,10 +1,11 @@
 .SharePage{
   background-color: khaki;
-  padding: 5px 10px  0  10px;
+  padding:  10px;
 }
 
 .item-info{
   background-color: white;
+  padding: 10px;
 }
 
 .share{
@@ -16,3 +17,12 @@
   border: 1px solid black;
   padding: 3px;
 }
+
+.item-name{
+  text-align: center;
+}
+
+.item-img-content{
+  text-align: center;
+}
+

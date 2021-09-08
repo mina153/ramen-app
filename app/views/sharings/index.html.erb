@@ -5,7 +5,7 @@
     
   </div>
  
-  <div class='item2-contents'>
+  <div class='item1-contents'>
     <%# <div class="item__info"> %>
       <%# <h6>  Welcome back , <b><%= link_to current_user.name, user_path(current_user)</b> ! </h6> %>
 
@@ -18,7 +18,7 @@
 
               <div class='item-info'>
                 <h3 class='item-name'>
-                  <%= link_to item.title, item_path(item.id), method: :get %>  by <%= link_to item.user.name, user_path(item.user) %>  
+                  <%= link_to item.title, item_path(item.id), method: :get %>  
                 </h3>
                   <div class='item-img-content'>
                     <%= image_tag item.image, class: "item-img" if item.image.attached?%>
@@ -31,12 +31,9 @@
                 <ul class="more_list">
                   <% if user_signed_in? %>          
                     <% if current_user == item.user %>  
-                      <li>  
-                        <%= link_to 'EDIT 📝', edit_item_path(item.id), method: :get %>
-                      </li>    
-                      <li>
-                        <%= link_to 'DELETE ❌', item_path(item.id), method: :delete %>
-                      </li>   
+                      <div class = "edit1-destroy1">
+                        <%= link_to "EDIT 📝", edit_item_path(item.id), method: :get, class: "item-edit" %> or <%= link_to "DELETE ❌", item_path(item.id), method: :delete, class:"item-destroy" %>
+                      </div>
                     <% end %> 
                   <% end %> 
                 </ul>  
@@ -59,7 +56,7 @@
   <div class="Account_link">
     <% if user_signed_in? %>
       <br>
-      <%= link_to '⇨ back to MyPage', items_path(current_user), class: "share"%>
+      <%= link_to '⇨ MyPage', items_path(current_user), class: "share"%>
       <br>
       <br>
       <%= link_to '⇨ Logout', destroy_user_session_path, method: :delete, class: "logout" %>

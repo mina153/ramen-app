@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   resources :ramens, only: :index
 
   resources :items  do
-    resources :comments
+    resources :comments, only: [:create]
   end
 
   resources :items 

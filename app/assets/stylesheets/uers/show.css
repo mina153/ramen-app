@@ -4,11 +4,11 @@ h2{
 }
 
  
- .detail-table {
+ /* .detail-table {
    margin-bottom: 30px;
    width: 90%;
    
- }
+ } */
  
  .detail-intern {
    width: 20%;
@@ -18,17 +18,17 @@ h2{
    text-align: center;
  }
  
- .detail-value {
+ /* .detail-value {
    width: 80%;
    padding: 20px;
    border: 1px solid #dedede;
    font-size: 14px;
- }
+ } */
 
  
  table{
-   margin: 0 auto
- }
+   margin: 0 auto;
+ } 
 
  .back-page-btn{
   margin: 15px 0 0 0;
@@ -37,10 +37,8 @@ h2{
   padding: 3px;
  }
  
- .more_list{
-   margin: 50px 0 30px 0;
- }
+ 
 
 h4{
-  font-size: 30px;
+  font-size: 25px;
 }

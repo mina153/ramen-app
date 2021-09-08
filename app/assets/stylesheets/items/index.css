@@ -12,14 +12,12 @@ h6{
   margin: 15px 0;
 }
 
-.list-list{
-    
+.list-list{ 
   padding-left: 0px;  
 }
 
 .item__info{
   margin: 0 0 30px 0;
-
 }
 .show-list{
   width: 50vw;
@@ -27,7 +25,7 @@ h6{
 .item-img{
   width: 50%;
   height: 50%;
-  margin: 20px 0 0 15px;
+  margin: 20px 0 0 0px;
 }
 
 .entry-form{
@@ -46,9 +44,32 @@ h6{
 
 .AccountPage{
   background-color: lightcyan;
-  padding: 5px 10px  0  10px;
+  padding:  10px;
 }
 
 .border-bottom-1{
   border-bottom: solid 1px black
 }
+
+ul{
+  margin-left: 0;
+  padding-left: 0;
+  margin-top: 30px;
+}
+
+/* .list{
+  margin: 0 auto;
+} */
+
+.show-list{
+  margin: 0 auto;
+}
+
+.entry-form{
+  margin: 50px auto 30px;
+}
+
+.Account_link{
+  text-align: center;
+}
+

@@ -1,5 +1,6 @@
 h5{
-  font-size: 30px;
+  font-size: 15px;
+  margin-top: 50px;
 }
 
 h6{
@@ -37,3 +38,48 @@ h6{
   border: 1px solid #ccc;
   width: 50%;
 }
+
+.items-main{
+  padding: 5px 10px  0  10px;
+}
+
+.post{
+  padding: 5px 10px  0  10px;
+}
+
+.ramens-address{
+  padding: 5px 10px  0  10px;
+}
+
+.new-items{
+  text-align: center;
+}
+.items-btn-contents{
+  text-align: center;
+}
+.back-page-btn{
+  text-align: center;
+}
+.post{
+  margin: 0 auto;
+}
+.ramens-address{
+  margin: 0 auto;
+  text-align: center;
+}
+
+.items{
+  margin: 15px auto 15px;
+}
+/* .items-city{
+  margin: 15px auto 15px;
+}
+.items-explanation{
+  margin: 15px auto 15px;
+}
+.img-upload{
+  margin: 15px auto 15px;
+}
+.items-title{
+  margin: 15px auto 15px;
+} */
