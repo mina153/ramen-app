@@ -14,7 +14,12 @@ class User < ApplicationRecord
   has_many :events, foreign_key: :user_id, dependent: :destroy
   has_many :questions,  foreign_key: :user_id, dependent: :destroy
 
-  # has_many :participations, foreign_key: :user_id, dependent: :destroy
+  has_many :likes, dependent: :destroy
+  has_many :liked_posts, through: :likes, source: :event
+
+  def already_liked?(event)
+    self.likes.exists?(event_id: event.id)
+  end
 end
 
 

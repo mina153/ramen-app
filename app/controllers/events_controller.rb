@@ -1,7 +1,7 @@
 class EventsController < ApplicationController
   before_action :authenticate_user!, except: [:show, :index]
-  before_action :movement, only: [ :show, :edit, :update, :destroy]
-  before_action :prohibit, only: [:edit, :update, :destroy]
+  before_action :motivate, only: [ :show, :edit, :update, :destroy]
+  before_action :prohibition, only: [:edit, :update, :destroy]
 
   def index
     @events = Event.all.order("date", "start_at")
@@ -23,6 +23,8 @@ class EventsController < ApplicationController
   def show
     @question = Question.new
     @questions = @event.questions.includes(:user)
+
+    @like = Like.new
   end
 
   def edit 
@@ -31,7 +33,7 @@ class EventsController < ApplicationController
 
   def update 
     if @event.update(event_params)
-      redirect_to item_path(@event.id)
+      redirect_to event_path(@event.id)
     else
       render :edit
     end
@@ -51,11 +53,11 @@ class EventsController < ApplicationController
     params.require(:event).permit(:theme, :detail, :date, :start_at, :finish_at, :user).merge(user_id: current_user.id)
   end
 
-  def movement 
+  def motivate
     @event = Event.find(params[:id])
   end
 
-  def prohibit
+  def prohibition
     redirect_to new_user_session_path unless current_user.id == @event.user_id 
   end
   

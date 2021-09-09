@@ -49,6 +49,7 @@
                           <%= event.finish_at.strftime( "%H:%M" ) %> )
                         <br>
                       </div>
+                      <%= event.liked_users.count %>
                         <%# <div class='item-img-content'>
                           <%= image_tag event.image, class: "item-img" if item.image.attached?%>
                         <%# </div> %> 

@@ -1,4 +1,22 @@
-<h1 class="border-bottom-1">MyProfile</h1>
+    <div class= "Account__info">
+
+      <h1 class="border-bottom-1">MyProfile</h1>
+
+      <div class="Account_link">
+        <% if user_signed_in? %>
+      
+          <%=link_to '⇨ MyPage', items_path(@user), class:"back-page-btn" %>
+            
+        <% else %>
+          <ul>
+          <li><%= link_to '⇩ Login', new_user_session_path, class: "login" %></li>
+          <li><%= link_to '⇩ New Registration', new_user_registration_path, class: "sign-up" %></li>
+          </ul>
+        <% end %>
+      </div>
+
+    </div>
+
 <h2>  <%= link_to @user.nickname , '#'%> 's profile</h2>
 
     <table class="detail-table">
@@ -20,6 +38,12 @@
       </tbody>
     </table>
 
+  <h3>いいねしているイベント</h3>
+    <% @user.liked_posts.each do |event| %>
+      <%= event.user.nickname %>
+      <%= event.detail %>
+    <% end %>
+
     <div class="more_list">
         <% if user_signed_in? %>    
           <% if  @user== current_user %>        
@@ -29,6 +53,4 @@
           <% end %>   
         <% end %>  
     </div>   
-    <div class="Account_link">
-      <%=link_to '⇨ MyPage', items_path(@user), class:"back-page-btn" %>
-    </div>
+ 

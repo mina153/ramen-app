@@ -18,7 +18,7 @@ Rails.application.routes.draw do
 
   resources :events do
     resources :questions, only: [:create]
-    # resources :participations, only: [:create, :destroy]
+    resources :likes, only: [:create, :destroy]
   end
   
 end

@@ -68,14 +68,20 @@
     </div>
   
 
-      
+    
+
     <%# <div class="entry-form">
       <%= link_to ' + Share ramen 🍜', new_item_path(current_user) %>
     <%# </div> %> 
 
   </div>
   <%# /商品一覧 %>
-
+ 
+  <h3>いいねしているイベント</h3>
+    <% @user.liked_posts.each do |event| %>
+      <%= event.user.nickname %>
+      <%= event.detail %>
+    <% end %>
 
     
 </div>
