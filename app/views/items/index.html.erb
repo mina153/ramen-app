@@ -1,16 +1,19 @@
 <div class="AccountPage">
   <div class="Account__info">
    
-      <h1 class="border-bottom-1">MyPage </h1>
+      <h1>MyPage </h1>
     
   
     <div class="Account_link">
         <% if user_signed_in? %>
       
-            <%= link_to '🐰 SharePage 🐰', sharings_path, class: "share"%>
+            <%= link_to 'Plan', plans_path, class: "share1"%>
+
+            <%= link_to '🐰 SharePage 🐰', sharings_path, class: "share5"%>
             or
-            <%= link_to '🍻 EventPage 🍻', events_path, class: "share"%>
+            <%= link_to '🍻 EventPage 🍻', events_path, class: "share2"%>
           
+            
           
             <%= link_to '⇨ Logout', destroy_user_session_path, method: :delete, class: "logout" %>
           
@@ -30,39 +33,48 @@
 
     </div>
     
-   
+  
     <div class = "list">
       <% @items.each do |item| %>
-        <% if current_user == item.user %>
-        <ul class= "list-list"> 
-          <li class='show-list'>  
-
-                    <div class='item-info'>
-                      <h3 class='item-name'>
-                        <%= link_to item.title,item_path(item.id), method: :get %>    
-                      </h3>
-                        <div class='item-img-content'>
-                          <%= image_tag item.image, class: "item-img" if item.image.attached?%>
-                        </div>
-
-                      <%# <div class='user-date'>
-                        <span>Contributor : <%= link to item.user.name %></span>  
-                      <%# </div>   %>
-                      
-                      <ul class="more_list">
-                        <% if user_signed_in? %>          
-                          <% if current_user == item.user %>  
-                          <div class = "edit1-destroy1">
-                            <%= link_to "EDIT 📝", edit_item_path(item.id), method: :get, class: "item-edit" %> or <%= link_to "DELETE ❌", item_path(item.id), method: :delete, class:"item-destroy" %>
-                          </div>
-                          <% end %> 
-                        <% end %> 
-                      </ul>  
-
-                    </div>   
-          </li>
+        <ul class = "select1">
+          <br><li><%= "Let's share your favorite ramen in " %><%= link_to '🐰 SharePage 🐰', sharings_path, class: "share5"%><br></li>
+          <br><li><%= "Plan or check out events in "%><%= link_to '🍻 EventPage 🍻', events_path, class: "share2"%><br></li>
+          <br><li><%= "Check out the events you'll attend in "%><%= link_to 'Plan', plans_path, class: "share1"%><br></li>
         </ul>
-        <% end %>  
+
+          <% if current_user == item.user %>
+          <ul class= "list-list"> 
+            <li class='show-list'>  
+
+                      <div class='item-info'>
+                        <h3 class='item-name'>
+                          <%= link_to item.title,item_path(item.id), method: :get %>    
+                        </h3>
+                          <div class='item-img-content'>
+                            <%= image_tag item.image, class: "item-img" if item.image.attached?%>
+                          </div>
+
+                        <%# <div class='user-date'>
+                          <span>Contributor : <%= link to item.user.name %></span>  
+                        <%# </div>   %>
+                        
+                        <ul class="more_list">
+                          <% if user_signed_in? %>          
+                            <% if current_user == item.user %>  
+                            <div class = "edit1-destroy1">
+                              <%= link_to "EDIT 📝", edit_item_path(item.id), method: :get, class: "item-edit" %> or <%= link_to "DELETE ❌", item_path(item.id), method: :delete, class:"item-destroy" %>
+                            </div>
+                            <% end %> 
+                          <% end %> 
+                        </ul>  
+
+                      </div>   
+            </li>
+          </ul>
+          <% end %> 
+        
+          
+        
       <% end %> 
     
     </div>
@@ -77,11 +89,7 @@
   </div>
   <%# /商品一覧 %>
  
-  <h3>いいねしているイベント</h3>
-    <% @user.liked_posts.each do |event| %>
-      <%= event.user.nickname %>
-      <%= event.detail %>
-    <% end %>
+ 
 
     
 </div>

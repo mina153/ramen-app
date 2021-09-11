@@ -1,13 +1,5 @@
 <div class = "check">
-    <% if user_signed_in? %> 
-      <%= link_to '🏄🏼 MyPage 🏄🏼‍♂️ ', items_path %>
-      <br>
-      <%= link_to '🐰 SharePage 🐰', sharings_path %>
-      <br>
-      <br>
-      <%= link_to '🍻 EventPage 🍻', events_path %>
-      <br>
-    <% else %>
+    <% unless  user_signed_in? %> 
       <ul>
         <li><%= link_to '⇩ Login', new_user_session_path, class: "login" %></li>
         <li><%= link_to '⇩ New Registration', new_user_registration_path, class: "sign-up" %></li>
@@ -26,3 +18,12 @@
 <div class = 'item'> 
   <%= image_tag "ramen-intro02.png", class:"list-pict" %>
 </div> 
+
+<div class= "mypage">
+  <% if user_signed_in? %> 
+    <br>
+    <%= link_to '🏄🏼 MyPage 🏄🏼‍♂️ ', items_path, class: "share6" %>
+    <br> 
+    <br>
+  <% end %>
+</div>

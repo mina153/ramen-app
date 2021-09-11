@@ -40,16 +40,38 @@ h6{
 .share{
   border: 1px solid black;
   padding: 5px;
+  
+}
+
+.share2{
+  background-color:peachpuff;
+  border: 1px solid black;
+  padding: 5px;
+}
+
+.share4{
+  border: 1px solid black;
+  padding: 5px;
+}
+
+.share5{
+  border: 1px solid black;
+  padding: 5px;
+  background-color: khaki;
 }
 
 .AccountPage{
   background-color: lightcyan;
   padding:  10px;
+  width: 100vw;
+  height: 100vh; 
 }
-/* 
+
+
+
 .border-bottom-1{
   border-bottom: solid 1px black
-} */
+} 
 
 .Account__info{
   border-bottom: solid 1px black;
@@ -60,6 +82,12 @@ ul{
   margin-left: 0;
   padding-left: 0;
   margin-top: 30px;
+}
+
+.select1{
+  list-style-type: square;
+  color:lightslategray;
+  padding: 15px;
 }
 
 /* .list{
@@ -78,3 +106,9 @@ ul{
   margin: 30px 0 30px auto ;
 }
 
+.back-page-btn1{
+  margin: 15px 10px 0 15px;
+  background-color: white;
+  border: 1px solid black;
+  padding: 3px;
+}

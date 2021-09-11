@@ -1,14 +1,14 @@
 <div class="SharePage">
     <div class= "Account__info">
 
-      <h1 class="border-bottom-1">SharePage </h1>
+      <h1>SharePage </h1>
 
       <div class="Account_link">
         <% if user_signed_in? %>
       
-            <%= link_to '⇨ MyPage', items_path(current_user), class: "share"%>
+            <%= link_to '⇨ MyPage', items_path(current_user), class: "share4"%>
             or
-            <%= link_to '🍻 EventPage 🍻', events_path, class: "share"%>
+            <%= link_to '🍻 EventPage 🍻', events_path, class: "share2"%>
           
           
             <%= link_to '⇨ Logout', destroy_user_session_path, method: :delete, class: "logout" %>

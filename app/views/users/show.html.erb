@@ -1,11 +1,11 @@
     <div class= "Account__info">
 
-      <h1 class="border-bottom-1">MyProfile</h1>
+      <h1>MyProfile</h1>
 
       <div class="Account_link">
         <% if user_signed_in? %>
       
-          <%=link_to '⇨ MyPage', items_path(@user), class:"back-page-btn" %>
+          <%=link_to '⇨ MyPage', items_path(@user), class:"share4" %>
             
         <% else %>
           <ul>
@@ -38,10 +38,14 @@
       </tbody>
     </table>
 
-  <h3>いいねしているイベント</h3>
-    <% @user.liked_posts.each do |event| %>
-      <%= event.user.nickname %>
-      <%= event.detail %>
+    <% if user_signed_in? %>  
+      <% if @user == current_user %>
+        <h3>いいねしているイベント</h3>
+          <% @user.liked_posts.each do |event| %>
+            <%= event.user.nickname %>
+            <%= event.detail %>
+          <% end %>
+      <% end %>
     <% end %>
 
     <div class="more_list">

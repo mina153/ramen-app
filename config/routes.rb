@@ -5,7 +5,12 @@ Rails.application.routes.draw do
   get 'ramens/index'
   devise_for :users
   root  'ramens#index'
-  resources :users, only: [:show, :edit, :update]
+  resources :users, only: [:show, :edit, :update] do
+    member do
+      get :likes
+    end
+  end
+
   resources :ramens, only: :index
 
   resources :items  do
@@ -21,4 +26,5 @@ Rails.application.routes.draw do
     resources :likes, only: [:create, :destroy]
   end
   
+  resources :plans, only: [:index]
 end

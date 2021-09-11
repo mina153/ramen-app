@@ -1,0 +1,17 @@
+.share1{
+  border: 1px solid black;
+  padding: 5px;
+  margin-right: 30px;
+  background-color: pink;
+}
+
+.AccountPage3{
+  background-color: pink;
+  padding:  10px;
+  width: 100vw;
+  height: 100vh;
+}
+
+html{
+  margin: none;
+}

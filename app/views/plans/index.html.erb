@@ -1,0 +1,76 @@
+<div class="AccountPage3">
+  <div class="Account__info">
+   
+      <h1 >PlanningEvents </h1>
+    
+  
+    <div class="Account_link">
+        <% if user_signed_in? %>
+      
+            <%= link_to '🍻 EventPage 🍻', events_path, class: "share2"%>
+
+            <%=link_to '⇨ back to MyPage', items_path(current_user), class:"share4" %>
+           
+  
+            <%= link_to '⇨ Logout', destroy_user_session_path, method: :delete, class: "logout" %>
+          
+        <% else %>
+          <ul>
+          <li><%= link_to '⇩ Login', new_user_session_path, class: "login" %></li>
+          <li><%= link_to '⇩ New Registration', new_user_registration_path, class: "sign-up" %></li>
+          </ul>
+        <% end %>
+    </div>
+
+  </div>
+
+
+  
+  
+  
+ 
+  <div class='item1-contents'>
+    <div class = "list">
+      <% @like_posts.each do |event| %>
+        
+        <ul class= "list-list"> 
+          <li class='show-list'>  
+
+                    <div class='item-info'>
+                      <h3 class='item-name'>
+                        <%= link_to event.theme, event_path(event), method: :get %>    
+                      </h3>
+
+                      
+                      <ul class="more_list">
+                        <% if user_signed_in? %>          
+                          <% if current_user == event.user %>   
+                          <div class = "edit1-destroy1">
+                            <%= link_to "EDIT 📝", edit_event_path(event), method: :get, class: "item-edit" %> 
+                            or 
+                            <%= link_to "DELETE ❌", item_path(event), method: :delete, class:"item-destroy" %> 
+                          </div> 
+                          <% end %>  
+                        <% end %> 
+                      </ul>   
+
+                    </div>   
+          </li>
+        </ul>
+       
+      <% end %> 
+    
+    </div> 
+   
+
+    
+
+    
+
+  </div>
+
+ 
+ 
+
+    
+</div>

@@ -1,3 +1,32 @@
 .edit-destroy{
   text-align: center;
 }
+
+.border{
+  border-bottom: solid 1px gray;
+  text-align:center;
+  margin-top: 50px;
+  color: grey;
+}
+
+.ok{
+  text-align: center;
+}
+
+.ok-button{
+  padding: 5px;
+  font-size: 15px;
+  background-color: tomato;
+  color: white;
+  margin-bottom: 30px;
+}
+
+.enjoy{
+  text-align: center;
+  font-size: larger;
+  color: rgb(168, 157, 157);
+}
+
+.nickname{
+  text-align: center;
+}

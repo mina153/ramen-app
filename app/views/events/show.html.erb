@@ -3,10 +3,10 @@
 
     <div class= "Account__info">
     
-       <h1 class="border-bottom-1"> 🎉 RamenEvent 🎉 </h1>
+       <h1> 🎉 RamenEvent 🎉 </h1>
 
       <div class="Account_link">
-        <%=link_to '⇨ back to EventPage', events_path, class:"back-page-btn" %>
+        <%=link_to '⇨ back to EventPage', events_path, class:"share2" %>
       </div>
     </div>
 
@@ -20,7 +20,7 @@
       <tbody>
         <tr>
           <th class="detail-item">Host</th>
-          <td class="detail-value"><%= @event.user.nickname %></td>
+          <td class="detail-value"><%= link_to @event.user.nickname, user_path(@event.user) %></td>
        </tr>  
         <tr>
           <th class="detail-item">Detail</th>
@@ -43,22 +43,7 @@
         </tr> 
       </tbody>
     </table>
-   
-    <div class= "participants">
 
-      <% if current_user.already_liked?(@event) %>
-        <%= button_to 'いいねを取り消す', event_like_path(@event), method: :delete %>
-      <% else %>
-        <%= button_to 'いいね', event_likes_path(@event) %>
-      <% end %>
-
-      <h4>いいねしたユーザー</h4>
-      <% @event.liked_users.each do |user| %>
-        <li><%= user.nickname %></li>
-      <% end %>
-
-    </div>
-        
     <div class= edit-destroy>
       <% if user_signed_in? %>  
         <% if current_user.id == @event.user_id %>
@@ -70,11 +55,35 @@
         <% end %> 
       <% end %>       
     </div>
+   
+    <div class= "participants">
+    
+      <div class ="ok">
+        <% unless current_user==@event.user %>
+          <% if current_user.already_liked?(@event) %>
+            <%= button_to '🙅🏼 Cancel participate 🙅🏼', event_like_path(@event), method: :delete, class:"ok-button" %>
+          <% else %>
+            <%= button_to '🙋🏼 Participate 🙋🏼', event_likes_path(@event), class:"ok-button" %>
+          <% end %>
+        <% end%>
+      </div>
+        <h4 class= "border"> 🌞 Users planning to participate 🌞</h4>
+        <% if @event.liked_users.present? %>
+          <% @event.liked_users.each do |user| %>
+            <li class= "nickname"><%= link_to user.nickname, user_path(user) %></li>
+          <% end %>
+        <% else%>
+          <p class= "enjoy"><%= " <<<   Let's enjoy the event with  " %><%= link_to @event.user.nickname, user_path(@event.user) %><%= " 🤹🏻‍♂️🎨  >>> " %></p>
+        <% end%>
+      
+    </div>
+        
+    
   </div>
 
   <div class="container">
     <% if user_signed_in? %>
-      <h4 class="border-bottom-1"> Comment </h4>
+      <h4 class="border-bottom-1"> Q&A </h4>
       <div class ="comments-comments">
         <%= form_with(model: [@event, @question], local: true) do |form| %>
           <%= form.text_area :hatena, class: "comments-form", placeholder: "Plase fill in the comment (max: 100 letters)", rows: "3" %>
@@ -85,7 +94,7 @@
     <% end %>
       </div> 
     <div class="comments"> 
-      <h5>＜コメント一覧＞</h5>
+      <h5>＜ List ＞</h5>
       <% @questions.each do |question| %>
         <p>
         <% if user_signed_in? %>

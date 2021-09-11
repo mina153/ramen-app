@@ -1,6 +1,8 @@
 .SharePage{
   background-color: khaki;
   padding:  10px;
+  width: 100vw;
+  height: 100vh;
 }
 
 .item-info{
@@ -8,8 +10,8 @@
   padding: 10px;
 }
 
-.share{
-  background-color: white;
+.share4{
+  background-color: lightcyan;
 }
 
 .logout{

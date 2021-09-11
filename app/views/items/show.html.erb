@@ -3,10 +3,10 @@
 
     <div class= "Account__info">
     
-       <h1 class="border-bottom-1">ShareRamen</h1>
+       <h1>ShareRamen</h1>
 
       <div class="Account_link">
-        <%=link_to '⇨ back to MyPage', items_path(current_user), class:"back-page-btn" %>
+        <%=link_to '⇨ back to MyPage', items_path(current_user), class:"share4" %>
       </div>
     </div>
 
@@ -61,7 +61,7 @@
     <% end %>
       </div>
     <div class="comments">
-      <h5>＜コメント一覧＞</h5>
+      <h5>＜ List ＞</h5>
       <% @comments.each do |comment| %>
         <p>
         <% if user_signed_in? %>
