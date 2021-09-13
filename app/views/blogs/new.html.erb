@@ -1,0 +1,66 @@
+<div class= "table2">
+  
+
+  <div class="Account__info">
+    <h1 class="top">WriteDiary</h1> 
+    <br>
+
+    <div class="Account_link">
+        <% if user_signed_in? %>
+      
+          <%= link_to 'Plan', plans_path, class: "share1"%>
+
+          <%= link_to 'MyPage', items_path(current_user), class:"share4" %>
+
+          <%= link_to '⇨ Back', blogs_path, class: "back2" %>
+        
+        <% else %>
+
+          <ul>
+          <li><%= link_to '⇩ Login', new_user_session_path, class: "login" %></li>
+          <li><%= link_to '⇩ New Registration', new_user_registration_path, class: "sign-up" %></li>
+          </ul>
+
+        <% end %>
+    </div>
+
+  </div>
+
+  
+    <%= form_with(model: @blog, local: true) do |form| %>
+
+      <div class="title2">
+        <%= form.label :Title %>
+        <%= form.text_field :dairy %>
+      </div>
+    
+      <br>
+      <div class="time">
+        <%= form.label :Date %>
+        <%=form.datetime_select(
+                        :start_time,
+                        class:'select-date',
+                        id:"date",
+                        use_month_numbers: true,
+                        prompt:'--',
+                        start_year: 2021,
+                        end_year: (Time.now.year + 10 ),
+                        date_separator: '') %>
+      </div>
+
+     
+      <br>
+      <div class="content3">
+        <%= form.label :Content %>
+        <%= form.text_field :content %>
+      </div>
+
+      <br>
+      <div class="submit">
+        <%= form.submit %>
+      </div>
+
+    <% end %>
+ 
+
+</div>

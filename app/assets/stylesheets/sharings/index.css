@@ -1,8 +1,8 @@
 .SharePage{
   background-color: khaki;
   padding:  10px;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
 }
 
 .item-info{

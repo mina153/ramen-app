@@ -40,7 +40,7 @@ class ItemsController < ApplicationController
 
   def destroy
     if @item.destroy
-      redirect_to items_path(current_user)
+      redirect_to sharings_path(current_user)
     else
       render :index
     end

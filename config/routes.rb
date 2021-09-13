@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'blogs/index'
   get 'sharings/index'
   get 'users/show'
   get 'items/index'
@@ -27,4 +28,5 @@ Rails.application.routes.draw do
   end
   
   resources :plans, only: [:index]
+  resources :blogs
 end

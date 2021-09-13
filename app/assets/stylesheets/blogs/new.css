@@ -1,0 +1,51 @@
+.content3{
+  margin-top: 20px;
+  margin-bottom: 30px;
+  text-align:left;
+  display: inline-block;
+}
+
+.time{
+  margin-top: 20px;
+  text-align:left;
+  display: inline-block;
+}
+
+.title2{
+  margin-top: 30px;
+  text-align:left;
+  display: inline-block;
+}
+
+.submit{
+  text-align:left;
+  display: inline-block;
+}
+
+
+.table2{
+  text-align: center;
+}
+
+
+.back2{
+  background-color: lightsteelblue;
+  border: 1px solid black;
+  padding: 5px;
+  margin: 0 15px;
+}
+body{
+  text-align: center;
+}
+
+.detail-table2{
+  margin: 30px auto 30px;
+}
+
+.share{
+  margin-right: 10px;
+}
+
+ul.select1{
+  text-align: left;
+}

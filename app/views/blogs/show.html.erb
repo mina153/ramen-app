@@ -1,0 +1,47 @@
+<p id="notice"><%= notice %></p>
+
+  <div class="Account__info">
+    <h1 class="top">Diary</h1> 
+    <br>
+
+    <div class="Account_link">
+        <% if user_signed_in? %>
+      
+          <%= link_to 'Plan', plans_path, class: "share1"%>
+
+          <%= link_to 'MyPage', items_path(current_user), class:"share4" %>
+
+          <%= link_to '⇨ Back', blogs_path, class: "back2" %>
+        
+        <% else %>
+
+          <ul>
+          <li><%= link_to '⇩ Login', new_user_session_path, class: "login" %></li>
+          <li><%= link_to '⇩ New Registration', new_user_registration_path, class: "sign-up" %></li>
+          </ul>
+
+        <% end %>
+    </div>
+
+  </div>
+
+  <table class="detail-table2">
+      <tbody>
+        <tr>
+          <th class="detail-item">Title</th>
+          <td class="detail-value"><%= @blog.dairy %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">Date</th>
+          <td class="detail-value"><%= @blog.start_time.strftime("%Y-%m-%d %H:%M")%></td>
+        </tr>
+         <tr>
+          <th class="detail-item">Content</th>
+          <td class="detail-value"><%= @blog.content%></td>
+        </tr>
+      </tbody>
+  </table>
+
+<%= link_to 'Edit 📝', edit_blog_path(@blog), class: "share" %> 
+|
+<%= link_to ' ⇨ Back', blogs_path, class: "back2" %>
