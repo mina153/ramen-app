@@ -7,7 +7,10 @@
 
       <div class="Account_link">
         <%=link_to '⇨ back to MyPage', items_path(current_user), class:"share4" %>
+        or
+        <%= link_to '⇨ back to SharePage 🐰', sharings_path, class: "share5"%>
       </div>
+
     </div>
 
 
@@ -44,7 +47,28 @@
       <% end %>       
     </div>
 
-    <%# <%= yield 'participations/participation.html.haml' %>  
+    <div class= "participants">
+    
+      <div class ="ok">
+        <% unless current_user==@item.user %>
+          <% if current_user.already_liked?(@item) %>
+            <%= button_to '♡', item_iine_path(@item), method: :delete, class:"ok-button3" %>
+          <% else %>
+            <%= button_to '💖 ', item_iines_path(@item), class:"ok-button4" %>
+          <% end %>
+        <% end%>
+      </div>
+        <h4 class= "border"> 🌷 Users who like posts 🌷</h4>
+        <% if @item.iine_users.present? %>
+          <% @item.iine_users.each do |user| %>
+            <li class= "nickname"><%= link_to user.nickname, user_path(user) %></li>
+          <% end %>
+        <% else%>
+          <p class= "enjoy"><%= " <<<   Let's enjoy the event with  " %><%= link_to @item.user.nickname, user_path(@item.user) %><%= " 🤹🏻‍♂️🎨  >>> " %></p>
+        <% end%>
+      
+    </div>
+        
 
   </div>
 

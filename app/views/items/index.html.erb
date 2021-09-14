@@ -50,8 +50,8 @@
       <% @items.each do |item| %>
         
 
-        <% if current_user == item.user %>
-          <%# <% if item.present? %>  
+        <% if current_user == item.user %> 
+         
             <ul class= "list-list"> 
               <li class='show-list'>  
 
@@ -63,9 +63,10 @@
                               <%= image_tag item.image, class: "item-img" if item.image.attached?%>
                             </div>
 
-                          <%# <div class='user-date'>
-                            <span>Contributor : <%= link to item.user.name %></span>  
-                          <%# </div>   %>
+                          💖: <%= item.iine_users.count %> 
+                            <% if current_user == item.user %>
+                              <%= link_to "( see 👀 )",item_path(item.id) %>
+                            <% end%>
                           
                           <ul class="more_list">
                             <% if user_signed_in? %>          
@@ -80,15 +81,55 @@
                         </div>   
               </li>
             </ul>
-          <%# <% else %>  
+     
            
            
-          <%# <% end %>  
+       
 
-        <% end %> 
+        <% end %>  
     
       <% end %> 
       
+      <div class= "iine-items">
+        <div class="example">
+          <b><br><%= " 💛 Your favorite post 🧡 " %></b><br>
+        </div>
+        <% @iine_items.each do |item| %>
+          
+          <ul class= "list-list"> 
+            <li class='show-list'>  
+
+                      <div class='item-info'>
+                        <h3 class='item-name'>
+                          <%= link_to item.title, item_path(item), method: :get %>    
+                        </h3>
+                        <div class='item-img-content'>
+                          <%= image_tag item.image, class: "item-img" if item.image.attached?%>
+                        </div>
+
+                        💖: <%= item.iine_users.count %> 
+                          <% if current_user == item.user %>
+                            <%= link_to "( see 👀 )",item_path(item.id) %>
+                          <% end%>
+                        
+                        <ul class="more_list">
+                          <% if user_signed_in? %>          
+                            <% if current_user == item.user %>   
+                              <div class = "edit1-destroy1">
+                                <%= link_to "EDIT 📝", edit_item_path(item), method: :get, class: "item-edit" %> 
+                                or 
+                                <%= link_to "DELETE ❌", item_path(item), method: :delete, class:"item-destroy" %> 
+                              </div> 
+                            <% end %>  
+                          <% end %> 
+                        </ul>   
+
+                      </div>   
+            </li>
+          </ul>
+        <% end %>
+      </div>
+
       <div class="example">
         <b><br><%= "Let's post 📸 !" %></b><br>
       </div>

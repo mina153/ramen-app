@@ -60,10 +60,10 @@
     
       <div class ="ok">
         <% unless current_user==@event.user %>
-          <% if current_user.already_liked?(@event) %>
-            <%= button_to '🙅🏼 Cancel participate 🙅🏼', event_like_path(@event), method: :delete, class:"ok-button" %>
+          <% if current_user.already_like?(@event) %>
+            <%= button_to '🙅🏼 Cancel participate 🙅🏼', event_like_path(@event), method: :delete, class:"ok-button1" %>
           <% else %>
-            <%= button_to '🙋🏼 Participate 🙋🏼', event_likes_path(@event), class:"ok-button" %>
+            <%= button_to '🙋🏼 Participate 🙋🏼', event_likes_path(@event), class:"ok-button2" %>
           <% end %>
         <% end%>
       </div>

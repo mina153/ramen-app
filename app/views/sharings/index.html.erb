@@ -45,9 +45,10 @@
                     <%= image_tag item.image, class: "item-img" if item.image.attached?%>
                   </div>
 
-                <%# <div class='user-date'>
-                  <span>Contributor : <%= link to item.user.name %></span>  
-                <%# </div>   %>
+                  💖: <%= item.iine_users.count %> 
+                            <% if current_user == item.user %>
+                              <%= link_to "( see 👀 )",item_path(item.id) %>
+                            <% end%>
                 
                 <ul class="more_list">
                   <% if user_signed_in? %>          

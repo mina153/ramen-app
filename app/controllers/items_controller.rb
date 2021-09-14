@@ -6,6 +6,10 @@ class ItemsController < ApplicationController
   def index
     @items = Item.all.order("created_at DESC")
 
+    @user = current_user
+    @items = @user.items
+    iines = Iine.where(user_id: @user.id).pluck(:item_id)  # ログイン中のユーザーのお気に入りのevent_idカラムを取得
+    @iine_items = Item.find(iines)
   end
 
   def new
@@ -24,6 +28,8 @@ class ItemsController < ApplicationController
   def show
     @comment= Comment.new
     @comments = @item.comments.includes(:user)
+
+    @iine = Iine.new
   end
 
   def edit 

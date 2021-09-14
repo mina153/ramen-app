@@ -19,7 +19,10 @@ Rails.application.routes.draw do
     # get :participations, on: :collection
   end
 
-  resources :items 
+  resources :items do
+    resources :iines, only: [:create, :destroy] 
+  end
+
   resources :sharings, only: [:index]
 
   resources :events do

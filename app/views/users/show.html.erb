@@ -38,15 +38,7 @@
       </tbody>
     </table>
 
-    <% if user_signed_in? %>  
-      <% if @user == current_user %>
-        <h3>いいねしているイベント</h3>
-          <% @user.liked_posts.each do |event| %>
-            <%= event.user.nickname %>
-            <%= event.detail %>
-          <% end %>
-      <% end %>
-    <% end %>
+    
 
     <div class="more_list">
         <% if user_signed_in? %>    

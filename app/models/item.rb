@@ -11,4 +11,7 @@ class Item < ApplicationRecord
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :prefecture
+
+  has_many :iines
+  has_many :iine_users, through: :iines, source: :user
 end
