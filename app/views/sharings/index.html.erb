@@ -54,7 +54,7 @@
                   <% if user_signed_in? %>          
                     <% if current_user == item.user %>  
                       <div class = "edit1-destroy1">
-                        <%= link_to "EDIT 📝", edit_item_path(item.id), method: :get, class: "item-edit" %> or <%= link_to "DELETE ❌", item_path(item.id), method: :delete, class:"item-destroy" %>
+                        <%= link_to "📝", edit_item_path(item.id), method: :get, class: "item-edit" %> or <%= link_to "DELETE ❌", item_path(item.id), method: :delete, class:"item-destroy" %>
                       </div>
                     <% end %> 
                   <% end %> 

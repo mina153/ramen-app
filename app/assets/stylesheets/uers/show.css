@@ -36,9 +36,59 @@ h2{
   border: 1px solid black;
   padding: 3px;
  }
- 
- 
 
 h4{
   font-size: 25px;
+}
+
+.follow-btn1{
+  margin-top: 50px;
+  background-color:lightblue;
+}
+
+.follow-btn2{
+  margin-top: 50px;
+  background-color:lightblue;
+}
+
+.following-count{
+  margin: 30px 10px 0 0;
+}
+
+.follower-count{
+  margin: 30px 0 0 10px;
+  color:darkcyan;
+}
+
+.stats{
+  display: flex;
+  justify-content: center;
+  
+}
+.peanuts{
+  color: chocolate;
+  font-size: 25px;
+}
+.profile1{
+  text-align:center;
+}
+
+
+div#follow_form{
+  text-align: center;
+}
+
+.follow-list{
+  margin: 15px;
+  text-align: center;
+}
+
+
+.row{
+  text-align: center;
+}
+
+
+table.calender1{
+  margin: 0 auto;
 }

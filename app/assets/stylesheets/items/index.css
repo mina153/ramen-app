@@ -40,7 +40,6 @@ h6{
 .share{
   border: 1px solid black;
   padding: 5px;
-  
 }
 
 .share2{
@@ -50,6 +49,11 @@ h6{
 }
 
 .share4{
+  border: 1px solid black;
+  padding: 5px;
+}
+
+.share7{
   border: 1px solid black;
   padding: 5px;
 }

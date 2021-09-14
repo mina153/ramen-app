@@ -4,9 +4,18 @@
 
       <div class="Account_link">
         <% if user_signed_in? %>
-      
-          <%=link_to '⇨ MyPage', items_path(@user), class:"share4" %>
+         
             
+          
+            <%= link_to 'Plan', plans_path, class: "share1"%>
+            
+            <%= link_to ' Diary ', blogs_path, class: "back2"%>
+            
+            <%= link_to '🐰 SharePage 🐰', sharings_path, class: "share5"%>
+            
+            <%= link_to '🍻 EventPage 🍻', events_path, class: "share2"%>
+
+            <%=link_to '⇨ MyPage', items_path(@user), class:"share4" %>
         <% else %>
           <ul>
           <li><%= link_to '⇩ Login', new_user_session_path, class: "login" %></li>
@@ -38,13 +47,15 @@
       </tbody>
     </table>
 
-    
+    <%= render 'follow_form' %>
+    <%= render 'stats' %>
+
 
     <div class="more_list">
         <% if user_signed_in? %>    
           <% if  @user== current_user %>        
             
-              <%= link_to 'EDIT 📝', edit_user_path(@user), method: :get %>
+              <%= link_to '📝', edit_user_path(@user), method: :get %>
 
           <% end %>   
         <% end %>  

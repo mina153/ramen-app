@@ -34,9 +34,7 @@
   padding: 5px;
   margin: 0 15px;
 }
-body{
-  text-align: center;
-}
+
 
 .detail-table2{
   margin: 30px auto 30px;
@@ -48,4 +46,8 @@ body{
 
 ul.select1{
   text-align: left;
+}
+
+.diary-edit{
+  text-align: center;
 }
