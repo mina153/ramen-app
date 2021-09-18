@@ -1,0 +1,50 @@
+<div class = "chatpage"> 
+  <div class="Account__info">
+   
+      <h1>ChatPage</h1>
+    
+  
+    <div class="Account_link">
+        <% if user_signed_in? %>
+      
+            <%= link_to 'Back', user_path(@user), class: "share1"%>
+            
+        <% end %>
+    </div>
+
+  </div>
+
+  <div class="chat1">
+    <%= form_with model: @chat do |f| %>
+        <%= f.text_field :message %>
+        <%= f.hidden_field :room_id %>
+        <%= f.submit %>
+    <% end %>
+
+    <div class= "if">
+      <br>＊ If you press the "Create Chat" button, reload 🙏🏻 ＊<br>
+    </div>
+
+    <div class = 'item'> 
+      <%= image_tag "ramen-intro04.png", class:"list-pict1" %>
+    </div> 
+
+  </div>
+  <table>
+      <thead>
+          <tr>
+              <td>Poster</td>
+          </tr>
+      </thead>
+      <tbody>
+          <% @chats.each do |chat| %>
+              <tr>
+                  <td><%= chat.user.name %></td>
+                  <td><%= chat.message %></td>
+              </tr>
+          <% end %>
+      </tbody>
+  </table>
+
+  
+</div>

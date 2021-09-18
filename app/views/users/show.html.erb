@@ -4,9 +4,6 @@
 
       <div class="Account_link">
         <% if user_signed_in? %>
-         
-            
-          
             <%= link_to 'Plan', plans_path, class: "share1"%>
             
             <%= link_to ' Diary ', blogs_path, class: "back2"%>
@@ -27,6 +24,12 @@
     </div>
 
 <h2>  <%= link_to @user.nickname , '#'%> 's profile</h2>
+
+        <% if current_user != @user %>
+          <div class="chat">
+              <%= link_to 'Chat 🗣', chat_path(@user.id)%>
+          </div>
+        <% end %>
 
     <table class="detail-table">
       <tbody>

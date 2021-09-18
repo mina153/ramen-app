@@ -16,7 +16,7 @@
 
 
     <div class="item">
-        <div class = item-title><h2><%= @item.title %></h2> by <%= link_to @item.user.nickname,  user_path(current_user) %></div>
+        <div class = item-title><h2><%= @item.title %></h2> by <%= link_to @item.user.nickname,  user_path(@item.user) %></div>
         <div class='item-img-content'>
           <%= image_tag @item.image, class: "item-img" if @item.image.attached?%>
         </div>

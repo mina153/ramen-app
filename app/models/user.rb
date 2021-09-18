@@ -20,6 +20,9 @@ class User < ApplicationRecord
   has_many :iines, dependent: :destroy
   has_many :iine_items, through: :iines, source: :item
 
+  has_many :user_rooms
+  has_many :chats
+
   def already_like?(event)
     self.likes.exists?(event_id: event.id)
   end

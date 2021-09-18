@@ -1,11 +1,14 @@
 Rails.application.routes.draw do
-  get 'blogs/index'
-  get 'sharings/index'
-  get 'users/show'
-  get 'items/index'
-  get 'ramens/index'
+  # get 'blogs/index'
+  # get 'sharings/index'
+  # get 'users/show'
+  # get 'items/index'
+  # get 'ramens/index'
   devise_for :users
   root  'ramens#index'
+
+  resources :chats, only: [:create, :show]
+
   resources :users, only: [:show, :edit, :update] do
     member do
       get :likes
@@ -40,3 +43,4 @@ Rails.application.routes.draw do
   end
   resources :relationships, only: [:create, :destroy]
 end
+
