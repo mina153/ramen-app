@@ -1,9 +1,5 @@
 Rails.application.routes.draw do
-  # get 'blogs/index'
-  # get 'sharings/index'
-  # get 'users/show'
-  # get 'items/index'
-  # get 'ramens/index'
+  
   devise_for :users
   root  'ramens#index'
 
