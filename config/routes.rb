@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
-  
-  devise_for :users
+
   root  'ramens#index'
+  devise_for :users
+  
 
   resources :chats, only: [:create, :show]
 
