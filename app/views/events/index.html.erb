@@ -1,0 +1,92 @@
+<div class="EventPage">
+  <div class="Account__info">
+   
+      <h1 >EventPage </h1>
+
+    <div class="Account_link">
+      <% if user_signed_in? %>
+    
+          <%= link_to '⇨ MyPage', items_path(current_user), class: "share4"%>
+        or
+          <%= link_to '🐰 SharePage 🐰', sharings_path, class: "share5"%>
+        
+        
+          <%= link_to '⇨ Logout', destroy_user_session_path, method: :delete, class: "logout" %>
+        
+      <% else %>
+        <ul>
+        <li><%= link_to '⇩ Login', new_user_session_path, class: "login" %></li>
+        <li><%= link_to '⇩ New Registration', new_user_registration_path, class: "sign-up" %></li>
+        </ul>
+      <% end %>
+    </div>
+
+  </div>
+
+  <div class='item1-contents'>
+    <%# <div class="item__info">
+      
+    </div> %>
+    
+   
+    <div class = "list">
+      <% @events.each do |event| %>
+        <%# <% if current_user.id == event.user_id %> 
+          <ul class= "list-list"> 
+            <li class='show-list'>  
+
+                    <div class='item-info'>
+                      <h3 class='event-name'>
+                        <%= link_to event.theme, event_path(event.id), method: :get %>    
+                      </h3>
+
+                      <div class='event2-time'>
+                        <br>
+                          <b> Time : </b><%=  event.date%>    
+                            
+                          ( <%= event.start_at.strftime( "%H:%M" ) %>
+                            〜
+                          <%= event.finish_at.strftime( "%H:%M" ) %> )
+                        <br>
+                      </div>
+                      <b>members: </b><%= event.liked_users.count %> people 
+
+                      <% if current_user == event.user %>
+                        <%= link_to "( see 👀 )",event_path(event.id) %>
+                      <% end%>
+                    </div>   
+            </li>
+          </ul>
+        <%# <% end %>   
+      <% end %> 
+      <div class = "example2">
+        <%= "Plan an event 📆 !"%>
+      </div>
+        <ul class= "list-list"> 
+          <li class='show-list'>  
+            <div class='item-info'>
+              <h3 class='event-name'>
+                <%= link_to "ex: とうそんのラーメンを全種食べよう!", "#" %>    
+              </h3>
+              <div class='event2-time'>
+                <br>
+                  <b> Time : </b><%= "2021-🥟-🍜 (🍥🍥 :🍥🍥 ~ 🥢🥢 :🥢🥢)"%>    
+                <br>
+              </div>
+              <b>members: </b><%= "👯" %> people 
+            </div>  
+          </li>
+        </ul>
+      
+
+    </div>
+  
+
+      
+    <div class="entry-form">
+      <%= link_to ' + Share event 🏝', new_event_path %>
+    </div>
+
+  </div>
+  
+</div>

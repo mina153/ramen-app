@@ -1,0 +1,42 @@
+.share1{
+  border: 1px solid black;
+  padding: 5px;
+  margin-right: 15px;
+  background-color: pink;
+}
+
+.AccountPage3{
+  background-color: pink;
+  padding:  10px;
+  width: 100%;
+  height: 100%;
+}
+
+/* html{
+  padding: 0;
+} */
+
+.toppage{
+  background-color: lightsteelblue;
+  width: 100%;
+  height: 100%;
+}
+
+/* html{
+  background-color: lightsteelblue;
+} */
+
+.example{
+  font-size: larger;
+  color: darkslategrey;
+  border-top: solid 1px darkslategrey;
+  margin-top: 50px;
+}
+
+.example2{
+  font-size: larger;
+  color: darkslategrey;
+  border-top: solid 1px darkslategrey;
+  margin: 50px 0;
+}
+

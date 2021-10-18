@@ -1,0 +1,47 @@
+<h1 class="border-bottom-1">MyProfile</h1>
+<h2><%= link_to current_user.name , '#'%> 's profile</h2>
+
+  <%= form_with model: @user ,url: user_path, local: true do |f| %>
+    
+    <%# <%= render 'layouts/error_messages', model: f.object %> 
+    
+      <%# 会社名とインターンの説明 %>
+    <div class= "profile1">
+      <div class="edit-users">
+        <div class= "user-name">
+          <div class="weight-bold-text">
+            <strong> name</strong>
+            <span class="indispensable"> necessary </span>
+          </div>
+          <%= f.text_area :name, class:"user-text", id:"user-name", placeholder:"Please fill out your name" %>
+        </div>
+        <div class="edit-nickname">
+          <div class="weight-bold-text">
+            <strong>nickname</strong>
+            <span class="indispensable"> necessary </span>
+          </div>
+          <%= f.text_area :nickname, class:"user-text", id:"user-nickname", placeholder:"Please fill out your nickname " %>
+        </div>
+        <div class="edit-email">
+          <div class="weight-bold-text">
+            <strong>email </strong>(* Please be sure to enter [@])
+            <span class="indispensable"> necessary </span>
+            
+          </div>
+          <%= f.text_area :email, class:"user-text", id:"user-email", placeholder:"Please fill out your email (* Please be sure to enter [@]) " %>
+        </div>
+      </div>
+
+      <div class="companies-btn-contents">
+        <%= f.submit "⇧ Update" ,class:"user-btn" %>
+        <br>
+        <%=link_to '⇨ MyProfile', user_path(current_user), class:"back-profile-btn" %>
+        <br>
+      </div>
+    </div>
+  <% end %>
+   
+
+
+
+

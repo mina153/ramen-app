@@ -1,0 +1,88 @@
+<div class="items-contents">
+
+  <div class="items-main">
+   
+
+    <div class= "Account__info">
+    
+      <h1> Edit an event 🍻</h1>
+
+      <div class="Account_link">
+        <%=link_to '⇨ MyPage', items_path(current_user), class:"share4" %>
+      </div>
+    </div>
+
+
+    <%= form_with model: @event , local: true do |f| %>
+    
+      <%# <%= render 'layouts/error_messages', model: f.object %> 
+    
+     
+      <div class="new-items">
+          <h6>< About the event  ></h6>
+        <div class = "post">
+          <div class="items">
+            <div class="weight-bold-text">
+              <strong>* Event name</strong>
+              <span class="indispensable"> necessary </span>
+            </div>
+            <%= f.text_area :theme, class:"items-title", id:"item-title", placeholder:"Plase fill in the event name (max: 20 letters)" %>
+          </div>
+          <%# 画像 %>
+          <%# <div class="items">
+            <div class="weight-bold-text">
+              <strong>* Image</strong>
+              <span class="indispensable"> necessary </span>
+            </div>
+            <div class="click-upload">
+             
+              <%= f.file_field :image, id:"item-image" %>
+            <%# </div>
+          </div> %> 
+          <%# /画像 %>
+          <div class="items">
+            <div class="weight-bold-text">
+              <strong>* Detail</strong>
+              <span class="indispensable"> necessary </span>
+            </div>
+            <%= f.text_area :detail, class:"items-text", id:"item-explanation", placeholder:"Please fill in the detail of the event (ex:  What kind of the event? (max: 100 letters)" %>
+          </div>
+          <div class="items">
+            <div class="weight-bold-text">
+              <strong>* Date & Time </strong>
+              <span class="indispensable"> necessary </span>
+            </div>
+            <div class = "select-date">
+              <%= f.date_select :date, 
+                    class:"items-date",
+                    # id:"item-date",
+                    # use_month_numbers: true,
+                    prompt:'--',
+                    start_year: 2021,
+                    end_year: (Time.now.year + 10) %>
+            </div>
+            <div class= "select-time">
+              <br>
+                <p>
+                <b>Start Time : <b>
+                  <%= f.time_select :start_at, prompt:'--', class:"items-time" %>
+                </p>
+                <p>
+                <b>Finish Time : <b>
+                  <%= f.time_select :finish_at, prompt:'--', class:"items-time" %>
+                </p>
+              <br>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <%# 下部ボタン %>
+      <div class="items-btn-contents">
+          <%= f.submit "⇧ Update" ,class:"new-item-btn" %>
+      </div>
+      <%# /下部ボタン %>
+    
+    <% end %>
+  </div>
+</div>

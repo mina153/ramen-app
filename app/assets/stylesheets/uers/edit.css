@@ -1,0 +1,33 @@
+.indispensable{
+  padding: 5px;
+  background-color: #ccc;
+  margin: 15px;
+  border: 1px solid black;
+}
+
+
+.user-btn{
+  width: 150px;
+  height: 30px;
+  margin: 50px 0 30px 0;
+}
+
+
+.back-profile-btn{
+  margin: 15px 0 0 0;
+  background-color: white;
+  border: 1px solid black;
+  padding: 3px;
+}
+
+.weight-bold-text{
+  margin: 15px 0 15px 0;
+}
+
+ul {
+  list-style-type: none;
+} 
+
+.user-text{
+  width: 20%;
+}

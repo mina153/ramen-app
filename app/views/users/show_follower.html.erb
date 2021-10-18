@@ -1,0 +1,34 @@
+<div class= "Account__info">
+
+  <h1>Follow list</h1>
+
+  <div class="Account_link">
+    <% if user_signed_in? %>
+  
+      <%= link_to '⇨ Back', user_path(@user), class: "share7"%>
+        
+    <% else %>
+      <ul>
+      <li><%= link_to '⇩ Login', new_user_session_path, class: "login" %></li>
+      <li><%= link_to '⇩ New Registration', new_user_registration_path, class: "sign-up" %></li>
+      </ul>
+    <% end %>
+  </div>
+
+</div>
+
+<div class= "follow-list">
+  <% if @user.followers.present? %>
+    <% @user.followers.each do |user| %>
+      <table>
+      <tr>
+        <td>  <%= user.name %> </td>
+        <td><%= link_to '👀', user_path(user) %></td>
+      </tr>
+      </table>
+    <% end %>
+  <% else %>
+    <b class= "peanuts">Post a photo and have someone follow you 👨‍👧‍👧</b>
+      <br><%= image_tag "ramen-intro03.png", class:"list-pict" %><br>
+  <% end %>
+</div>

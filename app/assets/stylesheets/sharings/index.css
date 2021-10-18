@@ -1,0 +1,63 @@
+.SharePage{
+  background-color: khaki;
+  padding:  10px;
+  width: 100%;
+  height: 100%;
+}
+
+.item-info{
+  background-color: white;
+  padding: 10px;
+}
+
+.share4{
+  background-color: lightcyan;
+}
+
+.logout{
+  background-color: white;
+  border: 1px solid black;
+  padding: 3px;
+}
+
+.item-name{
+  text-align: center;
+}
+
+.item-img-content{
+  text-align: center;
+}
+
+.logout{
+  margin-left :50px
+}
+
+.chat{
+  text-align: center; 
+  margin: 40px auto; 
+  padding: 5px;
+  background-color:mistyrose;
+  border: 1px solid red;
+  width: 20%;
+}
+
+.chat1{
+  margin: 50px 0;
+  text-align: center;
+}
+
+.if{
+  color:tomato;
+}
+
+.chatpage{
+  background-color: mistyrose;
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+}
+
+.list-pict1{
+  width: 30%;
+  height: 30%;
+}

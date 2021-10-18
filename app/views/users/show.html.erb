@@ -1,0 +1,66 @@
+    <div class= "Account__info">
+
+      <h1>MyProfile</h1>
+
+      <div class="Account_link">
+        <% if user_signed_in? %>
+            <%= link_to 'Plan', plans_path, class: "share1"%>
+            
+            <%= link_to ' Diary ', blogs_path, class: "back2"%>
+            
+            <%= link_to '🐰 SharePage 🐰', sharings_path, class: "share5"%>
+            
+            <%= link_to '🍻 EventPage 🍻', events_path, class: "share2"%>
+
+            <%=link_to '⇨ MyPage', items_path(@user), class:"share4" %>
+        <% else %>
+          <ul>
+          <li><%= link_to '⇩ Login', new_user_session_path, class: "login" %></li>
+          <li><%= link_to '⇩ New Registration', new_user_registration_path, class: "sign-up" %></li>
+          </ul>
+        <% end %>
+      </div>
+
+    </div>
+
+<h2>  <%= link_to @user.nickname , '#'%> 's profile</h2>
+
+        <% if current_user != @user %>
+          <div class="chat">
+              <%= link_to 'Chat 🗣', chat_path(@user.id)%>
+          </div>
+        <% end %>
+
+    <table class="detail-table">
+      <tbody>
+        <tr>
+          <th class="detail-intern"> name</th>
+          <td class="detail-value"><%= @user.name %></td>
+        </tr>
+        <tr>
+          <th class="detail-intern"> nickname</th>
+          <td class="detail-value"><%= @user.nickname %></td>
+        </tr>
+        <% if  @user == current_user %>  
+          <tr>
+            <th class="detail-intern">email</th>
+            <td class="detail-value"><%= @user.email%></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+    <%= render 'follow_form' %>
+    <%= render 'stats' %>
+
+
+    <div class="more_list">
+        <% if user_signed_in? %>    
+          <% if  @user== current_user %>        
+            
+              <%= link_to '📝', edit_user_path(@user), method: :get %>
+
+          <% end %>   
+        <% end %>  
+    </div>   
+ 

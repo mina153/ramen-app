@@ -1,0 +1,29 @@
+<div class = "check">
+    <% unless  user_signed_in? %> 
+      <ul>
+        <li><%= link_to '⇩ Login', new_user_session_path, class: "login" %></li>
+        <li><%= link_to '⇩ New Registration', new_user_registration_path, class: "sign-up" %></li>
+      </ul> 
+    <% end %> 
+</div> 
+<div class="content">
+  <div class = "content1">
+    <b> Welcome back to ramen app !!! </b>
+  </div>
+  <div class= "content2">
+    <br> Share your favorite ramen 🍜 <br>
+  </div>
+</div>  
+
+<div class = 'item'> 
+  <%= image_tag "ramen-intro02.png", class:"list-pict" %>
+</div> 
+
+<div class= "mypage">
+  <% if user_signed_in? %> 
+    <br>
+    <%= link_to '🏄🏼 MyPage 🏄🏼‍♂️ ', items_path, class: "share6" %>
+    <br> 
+    <br>
+  <% end %>
+</div>

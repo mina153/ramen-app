@@ -1,0 +1,63 @@
+
+ .detail-table {
+  margin-bottom: 30px;
+  width: 50%;
+  height: 50%;
+}
+
+.detail-item {
+  width: 30%;
+  background-color: #eee;
+  border: 1px solid #dedede;
+  font-size: 14px;
+  text-align: center;
+}
+
+.detail-value {
+  width: 70%;
+  padding: 20px;
+  border: 1px solid #dedede;
+  font-size: 14px;
+  text-align: center;
+}
+
+
+table{
+  margin: 0 auto;
+}
+
+.item{
+  margin: 30px;
+}
+
+.container{
+  margin-top: 60px;
+  background-color:powderblue;
+  border: 1px solid black
+}
+
+.comments-form{
+  width: 40vw;
+}
+
+.container{
+  padding: 5px 10px  0  10px;
+}
+
+.item-box{
+  padding: 5px 10px  0  10px;
+}
+
+.edit-destroy{
+  text-align: center;
+  margin: 50px 0;
+}
+
+.edit1-destroy1{
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.container{
+  text-align: center;
+}

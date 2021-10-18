@@ -1,0 +1,37 @@
+.content{
+  margin: 15px 0 0;
+  text-align: center;
+}
+
+.content1{
+  font-size: 30px;
+}
+
+.content2{
+  font-size: 20px
+}
+
+.list-pict{
+  width: 50%;
+  height: 50%;
+  margin: 30px 0 0;
+}
+
+.item{
+  text-align: center;
+}
+
+.mypage{
+  text-align: center;
+}
+
+.check{
+  margin-top: 30px;
+}
+
+.share6{
+  border: 1px solid black;
+  padding: 10px;
+  background-color: lightcyan;
+  font-size: 30px;
+}
