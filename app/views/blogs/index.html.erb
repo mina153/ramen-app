@@ -40,17 +40,18 @@
 
         
           <tbody>
-         
-            <% @blogs.each do |blog| %>
-              <tr >
-                <td><%= blog.dairy %></td>
-                <td><%= blog.start_time.strftime("%Y-%m-%d %H:%M") %>〜</td>
-                <td><%= "  "%></td>
-                <td><%= link_to '  👀', blog %></td>
-                <td><%= link_to '  📝', edit_blog_path(blog.id) %></td>
-                <td><%= link_to '  ❌',blog_path(blog.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-              </tr>
-            <% end %>
+        
+              <% @blogs.each do |blog| %>
+                <tr >
+                  <td><%= blog.dairy %></td>
+                  <td><%= blog.start_time.strftime("%Y-%m-%d %H:%M") %>〜</td>
+                  <td><%= "  "%></td>
+                  <td><%= link_to '  👀', blog %></td>
+                  <td><%= link_to '  📝', edit_blog_path(blog.id) %></td>
+                  <td><%= link_to '  ❌',blog_path(blog.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                </tr>
+              <% end %>
+            
           </tbody>
         </table>
      
