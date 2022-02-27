@@ -67,23 +67,8 @@
 
 
 
-##event_users (中間)テーブル
 
-| Column              | Type       | Options                      |
-|---------------------|------------|----------------------------- |
-| user                | references | null:false,foreign_key: true |
-| event               | references | null:false,foreign_key: true |
-
-### Association
-
-- belongs_to :user
-- belongs_to :event
-
-
-
-
-
-## rooms テーブル
+##rooms テーブル
 
 | Column | Type   | Options     |
 | ------ | ------ | ----------- |
@@ -95,7 +80,7 @@
 - has_many :users, through: :room_users
 - has_many :messages
 
-## room_users テーブル
+##user_rooms テーブル
 
 | Column | Type       | Options                        |
 | ------ | ---------- | ------------------------------ |
@@ -107,15 +92,90 @@
 - belongs_to :room
 - belongs_to :user
 
-## messages テーブル
 
-| Column  | Type       | Options                        |
-| ------- | ---------- | ------------------------------ |
-| content | string     |                                |
-| user    | references | null: false, foreign_key: true |
-| room    | references | null: false, foreign_key: true |
+
+##blogs（日記）テーブル
+
+| Column              | Type    | Options                      |
+|---------------------|---------|------------------------------|
+| dairy               | string  | null:false                   |
+| content             | text    | null:false                   |
+| start_time          | datetime|                              |
+
+
+
+##chats（チャット）テーブル
+
+| Column              | Type    | Options                      |
+|---------------------|---------|------------------------------|
+| user_id             | integer |                              |
+| room_id             | integer |                              |
+| message             | string  |                              |
 
 ### Association
 
-- belongs_to :room
 - belongs_to :user
+- belongs_to :room
+
+
+
+##iines（投稿(item)へのいいね機能）テーブル
+
+| Column              | Type       | Options                      |
+|---------------------|------------|------------------------------|
+| item                | references | null:false, foreign_key: true|
+| user                | references | null:false, foreign_key: true|
+
+### Association
+
+- belongs_to :item
+- belongs_to :user
+
+
+
+##likes（イベント(event)へのいいね機能）テーブル
+
+| Column              | Type       | Options                      |
+|---------------------|------------|------------------------------|
+| event               | references | null:false, foreign_key: true|
+| user                | references | null:false, foreign_key: true|
+
+### Association
+
+- belongs_to :event
+- belongs_to :user
+
+
+
+##questions（イベント(event)に関する質問）テーブル
+
+| Column              | Type      | Options                      |
+|---------------------|-----------|------------------------------|
+| hatena              |   text    | null:false                   |
+| event               | references| null:false, foreign_key: true|
+| user                | references| null:false, foreign_key: true|
+
+
+### Association
+
+-  belongs_to :event
+-  belongs_to :user
+
+
+
+
+##relationships（フォロー機能）テーブル
+
+| Column              | Type      | Options                      |
+|---------------------|-----------|------------------------------|
+| follower_id         | integer   |                              |
+| following_id        | integer   |                              |
+
+
+
+### Association
+
+-  belongs_to :follower
+-  belongs_to :following
+
+
